@@ -1,6 +1,7 @@
 package it.marcoschiavo.gestionefilelezione;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class Main {
@@ -13,7 +14,16 @@ public class Main {
 			//se non esiste lo creo
 			file.createNewFile();
 		}
-
+		
+		//TODO: scrittura del file
+		//apro lo stream del file in scrittura
+		FileWriter fw = new FileWriter(file);
+		//scrivo una riga del file, ma il file vine scritto lettera per lettera
+		fw.write("Hello World!\n");
+		fw.write("Ciao Mondo");
+		//chiudo SEMPRE lo stream in scrittura.
+		fw.close();
+		//TODO: lettura del file
 	}
 
 }
