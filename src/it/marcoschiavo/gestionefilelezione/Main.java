@@ -1,5 +1,6 @@
 package it.marcoschiavo.gestionefilelezione;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -18,10 +19,13 @@ public class Main {
 		//TODO: scrittura del file
 		//apro lo stream del file in scrittura
 		FileWriter fw = new FileWriter(file);
-		//scrivo una riga del file, ma il file vine scritto lettera per lettera
-		fw.write("Hello World!\n");
-		fw.write("Ciao Mondo");
-		//chiudo SEMPRE lo stream in scrittura.
+		BufferedWriter bw = new BufferedWriter(fw);
+		//al posto di utilizzare file wreter utilizzerò il buffer
+		bw.write("Hello World!");
+		bw.newLine();
+		bw.write("Ciao Mondo!");
+		//devo chiudere prima il buffer e poi lo stream in scrittura.
+		bw.close();
 		fw.close();
 		//TODO: lettura del file
 	}
