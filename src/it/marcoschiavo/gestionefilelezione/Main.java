@@ -19,7 +19,7 @@ public class Main {
 			file.createNewFile();
 		}
 		
-		//TODO: scrittura del file
+		//scrittura del file
 		//apro lo stream del file in scrittura
 		FileWriter fw = new FileWriter(file);
 		BufferedWriter bw = new BufferedWriter(fw);
@@ -30,7 +30,7 @@ public class Main {
 		//devo chiudere prima il buffer e poi lo stream in scrittura.
 		bw.close();
 		fw.close();
-		//TODO: lettura del file
+		//lettura del file
 		FileReader fr = new FileReader(file);
 		BufferedReader br = new BufferedReader(fr);
 		//utilizzo il metodo read di un oggetto istanza di BufferedReader
@@ -42,7 +42,7 @@ public class Main {
 		//chiudo lo stream in lettura
 		br.close();
 		fr.close();
-		//TODO:modifica di un file
+		//sostituisci parola in un file
 		//apro il file in lettura
 		fr = new FileReader(file);
 		br = new BufferedReader(fr);
@@ -65,6 +65,15 @@ public class Main {
 		}
 		bw.close();
 		fw.close();
+		//aggiunta testo in un file senza sovrascriverlo
+		//impostare a true il secondo parametro di FileWriter
+		
+		FileWriter fwa = new FileWriter(file,true);
+		BufferedWriter bra = new BufferedWriter(fwa);
+		bra.write("Aggiunta alla fine del file");
+		bra.newLine();
+		bra.close();
+		fwa.close();
 		
 		
 		
