@@ -75,8 +75,42 @@ public class Main {
 		bra.close();
 		fwa.close();
 		
+		//copia di un file memorizzando in memoria
+		FileReader frr = new FileReader(file);
+		BufferedReader brr = new BufferedReader(frr);
+		Vector<String> origin = new Vector();
+		String riga;
+		while((riga = brr.readLine())!= null) {
+			origin.add(riga);
+		}
+		brr.close();
+		frr.close();
 		
+		File copy = new File("./copia.txt");
+
+		if(!copy.exists()) {
+			copy.createNewFile();
+		}
+		FileWriter fw2 = new FileWriter(copy);
+		BufferedWriter bw2 = new BufferedWriter(fw2);
+		for(int i = 0 ; i < origin.size() ; i++) {
+			bw2.write(origin.get(i));
+			bw2.newLine();
+		}
+		bw2.close();
+		fw2.close();
 		
+		//copia di un file senza memorizzarlo
+		  BufferedReader br3 = new BufferedReader(new FileReader("./prova.txt"));
+          BufferedWriter bw3 = new BufferedWriter(new FileWriter("./copia2.txt"));
+          String riga2;
+          while ((riga2 = br3.readLine()) != null) {
+              bw3.write(riga2);
+              bw3.newLine();
+          }
+          bw3.close();
+          br3.close();
+          System.out.println("Copia diretta completata con successo.");
 	}
 
 }
